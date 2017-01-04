@@ -2,7 +2,9 @@
   "name": "revelatio-cli",
   "version": "0.1.0",
   "description": "Revelatio CLI",
-  "main": "index.js",
+  "bin": {
+    "revelatio-cli": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
