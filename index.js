@@ -10,10 +10,16 @@ const chalk = require('chalk');
 
 const version = require('./lib');
 
-const revelatio = require('./lib/template/revelatio');
+const revelatio = require('./lib/template');
 
 const createRevelatioJson = (domain) => {
-  revelatio.domain = domain;
+
+  //TODO: valid domain
+  revelatio.domain          = domain;
+  revelatio.stages.local    = `local-${domain}` ;
+  revelatio.stages.staging  = `staging-${domain}`;
+  revelatio.stages.live     = `live-${domain}`;
+
   fs.writeFile("./revelatio.json", JSON.stringify(revelatio), function(err) {
 
     if(err) {
