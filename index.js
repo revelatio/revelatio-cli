@@ -8,7 +8,7 @@ const co = require('co');
 const prompt = require('co-prompt');
 const chalk = require('chalk');
 
-const pkg = require('./package');
+const version = require('./lib');
 
 const revelatio = require('./template/revelatio');
 
@@ -17,7 +17,8 @@ const createRevelatioJson = (domain) => {
   fs.writeFile("./revelatio.json", JSON.stringify(revelatio), function(err) {
 
     if(err) {
-        return console.log(chalk.bold.red("[-] " + err));
+      console.log(chalk.bold.red("[-] " + err));
+      process.exit(1);
     }
 
     console.log(chalk.bold.green("[+] The revelatio.json was saved!"));
@@ -28,7 +29,7 @@ const createRevelatioJson = (domain) => {
 const prettyPrompt = () => {
   co(function *() {
     console.log(chalk.bold.blue("[ ] Creating revelatio base project"));
-    console.log(chalk.bold.blue(`[ ] v${pkg.version}`));
+    console.log(chalk.bold.blue(`[ ] v${version}`));
 
     const domain = yield prompt(chalk.bold.cyan('[*] domain: '));
     createRevelatioJson(domain);
@@ -36,7 +37,7 @@ const prettyPrompt = () => {
 }
 
 program
-  .version('0.1.0')
+  .version(version)
   .command('create')
   .description('Create a revelatio parent project')
   .action(prettyPrompt);
