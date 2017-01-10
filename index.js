@@ -10,7 +10,7 @@ const chalk = require('chalk');
 
 const version = require('./lib');
 
-const revelatio = require('./template/revelatio');
+const revelatio = require('./lib/template/revelatio');
 
 const createRevelatioJson = (domain) => {
   revelatio.domain = domain;
