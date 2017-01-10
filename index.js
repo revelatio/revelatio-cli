@@ -12,13 +12,12 @@ const version = require('./lib');
 
 const revelatio = require('./lib/template');
 
-const createRevelatioJson = (domain) => {
+const createRevelatioJson = (domain, local, staging) => {
 
-  //TODO: valid domain
   revelatio.domain          = domain;
-  revelatio.stages.local    = `local-${domain}` ;
-  revelatio.stages.staging  = `staging-${domain}`;
-  revelatio.stages.live     = `live-${domain}`;
+  revelatio.stages.live     = domain;
+  revelatio.stages.local    = local   || `local-${domain}`;
+  revelatio.stages.staging  = staging || `staging-${domain}`;
 
   fs.writeFile("./revelatio.json", JSON.stringify(revelatio), function(err) {
 
@@ -32,21 +31,28 @@ const createRevelatioJson = (domain) => {
   });
 }
 
-const prettyPrompt = () => {
+const prettyPrompt = (domain) => {
+  //TODO: valid domain
+
   co(function *() {
     console.log(chalk.bold.blue("[ ] Creating revelatio base project"));
     console.log(chalk.bold.blue(`[ ] v${version}`));
 
-    const domain = yield prompt(chalk.bold.cyan('[*] domain: '));
-    createRevelatioJson(domain);
+    const local   = yield prompt( chalk.bold.cyan('[*] local domain ') +
+                                  chalk.bold.gray(`(local-${domain}):`));
+
+    const staging = yield prompt( chalk.bold.cyan('[*] staging domain ') +
+                                  chalk.bold.gray(`(staging-${domain}):`));
+
+    createRevelatioJson(domain, local, staging);
   });
 }
 
 program
   .version(version)
-  .command('create')
+  .command('create <domain>')
   .description('Create a revelatio parent project')
-  .action(prettyPrompt);
+  .action((domain) => prettyPrompt(domain));
 
 program.parse(process.argv);
 if (program.args.length === 0) {
