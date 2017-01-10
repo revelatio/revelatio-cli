@@ -10,11 +10,11 @@ const chalk = require('chalk');
 
 const pkg = require('./package');
 
-var revelation = require('./template/revelatio');
+const revelatio = require('./template/revelatio');
 
-let createRevelatioJson = (domain) => {
-  revelation.domain = domain;
-  fs.writeFile("./revelatio.json", JSON.stringify(revelation), function(err) {
+const createRevelatioJson = (domain) => {
+  revelatio.domain = domain;
+  fs.writeFile("./revelatio.json", JSON.stringify(revelatio), function(err) {
 
     if(err) {
         return console.log(chalk.bold.red("[-] " + err));
@@ -25,7 +25,7 @@ let createRevelatioJson = (domain) => {
   });
 }
 
-let prettyPrompt = () => {
+const prettyPrompt = () => {
   co(function *() {
     console.log(chalk.bold.blue("[ ] Creating revelatio base project"));
     console.log(chalk.bold.blue(`[ ] v${pkg.version}`));
