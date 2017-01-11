@@ -9,6 +9,7 @@
     "test": "NODE_ENV=test TZ=UTC `npm bin`/mocha --recursive -r must --ui bdd --compilers js:babel-register",
     "build": ". ./dev/build.sh"
   },
+  "pre-commit": ["build"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/revelatio/revelatio-cli.git"
@@ -37,6 +38,7 @@
     "mocha": "^3.2.0",
     "must": "^0.13.2",
     "must-sinon": "^0.0.0",
+    "pre-commit": "^1.2.2",
     "sinon": "^1.17.7"
   }
 }
