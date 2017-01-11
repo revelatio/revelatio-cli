@@ -57,7 +57,7 @@
       "it"
     ],
     "ignore": [
-      "./dist"
+      "dist/**/*.js"
     ],
     "parser": "babel-eslint"
   }
