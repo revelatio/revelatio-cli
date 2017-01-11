@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-import program from 'commander';
-import {version} from '../package.json';
-import commands from './commands/index';
+import program from 'commander'
+import {version} from '../package.json'
+import commands from './commands/index'
 
 program
-  .version(version);
+  .version(version)
 
-commands(program);
+commands(program)
 
-program.parse(process.argv);
+program.parse(process.argv)
 if (program.args.length === 0) {
-  program.help();
+  program.help()
 }
