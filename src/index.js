@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-const program = require('commander');
-const version = require('./package.json').version;
-const commands = require('./src/commands');
+
+import program from 'commander';
+import {version} from '../package.json';
+import commands from './commands/index';
 
 program
   .version(version);

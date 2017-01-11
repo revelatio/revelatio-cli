@@ -1,5 +1,5 @@
-const fs = require('fs-extra');
-const Promise = require('bluebird');
+import fs from 'fs-extra';
+import Promise from 'bluebird';
 
 const mkdirs = Promise.promisify(fs.mkdirs);
 
@@ -10,9 +10,9 @@ function createApp (name) {
     })
 }
 
-module.exports.createApp = createApp;
+export {createApp as createApp};
 
-module.exports = function (program) {
+export default function (program) {
   program
     .command('create <appName>')
     .description('Create a revelat.io app project')
