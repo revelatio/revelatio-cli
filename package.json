@@ -3,17 +3,23 @@
   "version": "0.1.0",
   "description": "Revelatio CLI",
   "bin": {
-    "revelatio-cli": "./index.js"
+    "revelatio-cli": "./dist/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test TZ=UTC `npm bin`/mocha --recursive -r must --ui bdd --compilers js:babel-register",
+    "build": ". ./dev/build.sh",
+    "lint": "`npm bin`/standard"
   },
+  "pre-commit": [
+    "lint", "build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/revelatio/revelatio-cli.git"
   },
   "keywords": [
     "cli",
+    "revelat.io",
     "revelatio"
   ],
   "author": "revelatio",
@@ -23,11 +29,36 @@
   },
   "homepage": "https://github.com/revelatio/revelatio-cli#readme",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "co": "^4.6.0",
-    "co-prompt": "^1.0.0",
+    "bluebird": "^3.4.7",
     "commander": "^2.9.0",
-    "mem-fs": "^1.1.3",
-    "mem-fs-editor": "^2.3.0"
+    "fs-extra": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "mocha": "^3.2.0",
+    "must": "^0.13.2",
+    "must-sinon": "^0.0.0",
+    "pre-commit": "^1.2.2",
+    "sinon": "^1.17.7",
+    "standard": "^8.6.0"
+  },
+  "standard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it"
+    ],
+    "ignore": [
+      "dist/**/*.js"
+    ],
+    "parser": "babel-eslint"
   }
 }
