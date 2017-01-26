@@ -17,8 +17,6 @@ _commander2.default.version(_package.version);
 
 (0, _index2.default)(_commander2.default);
 
-var cmd = ['create', 'stage'];
-
 _commander2.default.parse(process.argv);
 if (_commander2.default.args.length === 0) {
   _commander2.default.help();
