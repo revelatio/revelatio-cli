@@ -1,7 +1,13 @@
-import create from './create'
-import stage from './stage'
+const create = require('./create')
+const status = require('./status')
+const add = require('./add')
+const list = require('./list')
+const _delete = require('./_delete')
 
-export default function (program) {
+module.exports = program => {
   create(program)
-  stage(program)
+  status(program)
+  add(program)
+  list(program)
+  _delete(program)
 }

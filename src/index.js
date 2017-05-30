@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+require('console.table')
 
-import program from 'commander'
-import {version} from '../package.json'
-import commands from './commands/index'
+const program = require('commander')
+const {version} = require('../package.json')
+const commands = require('./commands')
 
 program
   .version(version)
