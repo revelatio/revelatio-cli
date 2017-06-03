@@ -6,7 +6,7 @@ function addApi (name, hosts, upstream, uris) {
     name,
     hosts,
     upstream_url: upstream,
-    preserve_host: true,
+    preserve_host: false,
     strip_uri: false
   }
   if (uris) {
