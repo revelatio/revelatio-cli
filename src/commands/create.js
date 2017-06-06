@@ -1,6 +1,17 @@
+const fs = require('fs-extra')
 
 function createApp (name) {
-  console.log(`creating ${name}`)
+  const appSettings = {
+    name
+  }
+
+  fs.writeFile(`./${name}.json`, JSON.stringify(appSettings, null, 2))
+    .then(() => {
+      console.log(`created ${name}.json`)
+    })
+    .catch(err => {
+      console.error(err.toString())
+    })
 }
 
 module.exports = program => {

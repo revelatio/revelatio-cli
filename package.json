@@ -31,7 +31,9 @@
     "bluebird": "^3.4.7",
     "commander": "^2.9.0",
     "console.table": "^0.8.0",
-    "fs-extra": "^1.0.0"
+    "fs-extra": "^3.0.1",
+    "my-ip": "^1.1.1",
+    "ramda": "^0.24.1"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
