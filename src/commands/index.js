@@ -1,9 +1,10 @@
 const create = require('./create')
 const status = require('./status')
-const add = require('./add')
+const { add } = require('./add')
 const list = require('./list')
 const _delete = require('./_delete')
 const save = require('./save')
+const start = require('./start')
 
 module.exports = program => {
   create(program)
@@ -12,4 +13,5 @@ module.exports = program => {
   list(program)
   _delete(program)
   save(program)
+  start(program)
 }

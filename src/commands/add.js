@@ -1,7 +1,6 @@
-
 const { postKong } = require('../kong')
 
-function addApi (name, hosts, upstream, uris) {
+function addKongApi (name, hosts, upstream, uris) {
   const data = {
     name,
     hosts,
@@ -9,6 +8,7 @@ function addApi (name, hosts, upstream, uris) {
     preserve_host: false,
     strip_uri: false
   }
+
   if (uris) {
     data.uris = uris
   }
@@ -26,9 +26,12 @@ function addApi (name, hosts, upstream, uris) {
     })
 }
 
-module.exports = program => {
-  program
-    .command('add <name> <hosts> <upstream> [uris]')
-    .description('Adds kong API')
-    .action(addApi)
+module.exports = {
+  addKongApi,
+  add: program => {
+    program
+      .command('add <name> <hosts> <upstream> [uris]')
+      .description('Adds kong API')
+      .action(addKongApi)
+  }
 }

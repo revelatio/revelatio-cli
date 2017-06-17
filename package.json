@@ -18,7 +18,8 @@
   "keywords": [
     "cli",
     "revelat.io",
-    "revelatio"
+    "revelatio",
+    "kong"
   ],
   "author": "revelatio",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "console.table": "^0.8.0",
     "fs-extra": "^3.0.1",
     "my-ip": "^1.1.1",
+    "pm2": "^2.5.0",
     "ramda": "^0.24.1"
   },
   "devDependencies": {
