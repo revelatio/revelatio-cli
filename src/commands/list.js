@@ -14,9 +14,12 @@ function listApis () {
     })
 }
 
-module.exports = program => {
-  program
-    .command('list')
-    .description('List APIs')
-    .action(listApis)
+module.exports = {
+  listApis,
+  list: program => {
+    program
+      .command('list')
+      .description('List APIs')
+      .action(listApis)
+  }
 }

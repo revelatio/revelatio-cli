@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "Revelatio CLI",
   "bin": {
-    "revelatio-cli": "./src/index.js"
+    "rvl": "./src/index.js"
   },
   "scripts": {
-    "lint": "`yarn bin`/standard"
+    "lint": "standard"
   },
   "pre-commit": [
     "lint"
@@ -34,7 +34,6 @@
     "console.table": "^0.8.0",
     "fs-extra": "^3.0.1",
     "my-ip": "^1.1.1",
-    "pm2": "^2.5.0",
     "ramda": "^0.24.1"
   },
   "devDependencies": {

@@ -1,7 +1,6 @@
-
 const { deleteKong } = require('../kong')
 
-function deleteApi (name) {
+function dropApi (name) {
   return deleteKong(`/apis/${name}`)
     .then(() => {
       console.log('Deleted')
@@ -11,9 +10,12 @@ function deleteApi (name) {
     })
 }
 
-module.exports = program => {
-  program
-    .command('delete <name>')
-    .description('Deletes kong API')
-    .action(deleteApi)
+module.exports = {
+  dropApi,
+  drop: program => {
+    program
+      .command('delete <name>')
+      .description('Deletes kong API')
+      .action(dropApi)
+  }
 }

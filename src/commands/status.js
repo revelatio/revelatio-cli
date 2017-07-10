@@ -10,9 +10,12 @@ function checkStatus () {
     })
 }
 
-module.exports = program => {
-  program
-    .command('status')
-    .description('Check kong status')
-    .action(checkStatus)
+module.exports = {
+  checkStatus,
+  status: program => {
+    program
+      .command('status')
+      .description('Check kong status')
+      .action(checkStatus)
+  }
 }
