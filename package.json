@@ -1,6 +1,6 @@
 {
   "name": "revelatio-cli",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Revelatio CLI",
   "bin": {
     "rvl": "./src/index.js"
