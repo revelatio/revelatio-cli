@@ -1,13 +1,13 @@
 const { getKong } = require('../kong')
-const { logTable } = require('../helper')
+const { logObject } = require('../helper')
 
 function checkStatus () {
   return getKong('/status')
     .then(stat => {
       console.log('Server')
-      logTable(stat.server)
+      logObject(stat.server)
       console.log('Database')
-      logTable(stat.database)
+      logObject(stat.database)
     })
 }
 

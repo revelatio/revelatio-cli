@@ -27,4 +27,17 @@ function logTable (objects) {
   console.log(table.toString())
 }
 
+function logObject (object) {
+  const table = new Table()
+
+  Object.keys(object).forEach(key => {
+    const row = {}
+    row[key] = object[key]
+    table.push(row)
+  })
+
+  console.log(table.toString())
+}
+
 module.exports.logTable = logTable
+module.exports.logObject = logObject
