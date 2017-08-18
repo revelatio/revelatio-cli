@@ -1,4 +1,5 @@
 const { getKong } = require('../kong')
+const { logTable } = require('../helper')
 
 function listApis () {
   return getKong('/apis')
@@ -10,7 +11,7 @@ function listApis () {
           upstream_url: api.upstream_url,
           uris: api.uris
         }))
-      console.table(apiList)
+      logTable(apiList)
     })
 }
 

@@ -30,8 +30,8 @@
   "dependencies": {
     "axios": "^0.16.1",
     "bluebird": "^3.4.7",
+    "cli-table": "^0.3.1",
     "commander": "^2.9.0",
-    "console.table": "^0.8.0",
     "fs-extra": "^3.0.1",
     "my-ip": "^1.1.1",
     "ramda": "^0.24.1"

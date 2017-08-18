@@ -1,4 +1,5 @@
 const { postKong } = require('../kong')
+const { logTable } = require('../helper')
 
 function addKongApi (name, hosts, upstream, uris) {
   const data = {
@@ -15,7 +16,7 @@ function addKongApi (name, hosts, upstream, uris) {
 
   return postKong('/apis', data)
     .then(api => {
-      console.table(api)
+      logTable(api)
     })
     .catch(err => {
       const error = Object.keys(err.response.data)

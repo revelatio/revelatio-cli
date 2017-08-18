@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-require('console.table')
 
 const program = require('commander')
 const {version} = require('../package.json')
